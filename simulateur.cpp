@@ -32,15 +32,6 @@ std::queue<Processus> charger_fichier_scenario(const std::string& nom_fichier) {
         // Lecture des champs, s'assurer que chaque champ est bien extrait
         iss >> pid >> arrivee >> duree >> attente >> priorite >> type_num;
 
-        // Conversion du type numérique en TypeProcessus
-        switch (type_num) {
-            case 1: type = TypeProcessus::systeme; break;
-            case 2: type = TypeProcessus::interactif; break;
-            case 3: type = TypeProcessus::batch; break;
-            case 4: type = TypeProcessus::student; break;
-            default: throw std::runtime_error("Type de processus inconnu");
-        }
-
         // Créer le processus et l'ajouter à la file
         Processus processus(pid, arrivee, duree, duree, attente, 0, priorite, type);
         file_de_processus.push(processus);
@@ -73,9 +64,6 @@ void afficher_resultats(std::queue<Processus> resultats) {
         resultats.pop();
     }
 
-    temps_moyen = attente_totale / num_processus;
-    std::cout << "Temps d'attente moyen : " << temps_moyen << std::endl;
-}
 
 // Programme principal
 int test() {
