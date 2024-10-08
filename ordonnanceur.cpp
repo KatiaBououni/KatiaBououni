@@ -34,17 +34,18 @@ file<Processus> TP::fcfs(file<Processus> f_entree, int& temps) {
         temps_execution += p.req_duree();  
         f_resultat.enfiler(p);
     }
-    std::cout << "simulation de FCFS Resultat:\n";
+    //pour tester le main
+   /* std::cout << "simulation de FCFS Resultat:\n";
     while (!f_resultat.estvide()) {
         Processus p = f_resultat.defiler();
         std::cout << p.reqProcessusFormate();
-    }
+    }*/
     double temps_attente_moyen = 0;
     for (const auto& p : liste_processus) {
         temps_attente_moyen += p.req_attente();
     }
     temps_attente_moyen /= liste_processus.size();
-    std::cout << "Temps d'attente moyen : " << temps_attente_moyen << std::endl;
+   //pour tester le main std::cout << "Temps d'attente moyen : " << temps_attente_moyen << std::endl;
 
     return f_resultat;
 }
@@ -73,15 +74,15 @@ file<Processus> TP::fjs(file<Processus> f_entree, int& temps) {
     }
 
     // Afficher le résultat
-    std::cout << "Simulation de FJS Resultat:" << std::endl;
+   /* std::cout << "Simulation de FJS Resultat:" << std::endl;
     for (const auto& p : result) {
         Processus processus_temp = p; // Créez une copie non constante
         std::cout << processus_temp.reqProcessusFormate();
-    }
+    }*/
     
     // Calculer le temps d'attente moyen
     double temps_moyen = static_cast<double>(total_attente) / liste_processus.size();
-    std::cout << "Temps d'attente moyen : " << temps_moyen << std::endl;
+    //std::cout << "Temps d'attente moyen : " << temps_moyen << std::endl;
 
     return result;
 }
@@ -103,7 +104,7 @@ file<Processus> TP::fjs(file<Processus> f_entree, int& temps) {
         return p1.req_arrive() < p2.req_arrive();
     });
     int currentTime = temps;
-    cout << "Simulation de Round Robin Resultat:\n";
+   // cout << "Simulation de Round Robin Resultat:\n";
     // Boucle jusqu'à ce que tous les processus soient traités
     while (!file_pret_inf.estvide() || !file_pret_sup.estvide() || !liste_processus.empty()) {
         // Ajouter les processus qui sont arrivés
@@ -210,11 +211,11 @@ file<Processus> TP::priorite(file<Processus> f_entree, int& temps) {
         }
     }
         // Afficher le résultat
-    std::cout << "Simulation de FJS Resultat:" << std::endl;
+   /* std::cout << "Simulation de priorite Resultat:" << std::endl;
     for (const auto& p : result) {
         Processus processus_temp = p; // Créez une copie non constante
         std::cout << processus_temp.reqProcessusFormate();
-    }
+    }*/
     temps = current_time;  // Mise à jour du temps total écoulé
     return result;  // Retourne la file des processus exécutés
 } 
