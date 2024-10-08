@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.29)
+project(tp1_ordonnancement_AmenOuannes)
+
+set(CMAKE_CXX_STANDARD 14)
+
+
+
+add_executable(tp1_ordonnancement_AmenOuannes
+    ContratException.cpp
+    ContratException.h
+    Ordonnanceur.cpp
+    Ordonnanceur.h
+    Processus.cpp
+    Processus.h
+    simulateur.cpp)
