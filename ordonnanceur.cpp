@@ -9,7 +9,6 @@
 #include <iomanip>
 #include <vector>
 #include <queue>
-#include <vector>
 #include <stdexcept>
 #include "ordonnanceur.h"
 #include"Processus.h"
@@ -283,5 +282,5 @@ file<Processus> TP::multiniveaux(file<Processus> f_entree, int quantum, int& tem
         result.enfiler(p);
     }
 
-    return result;  // Retourne la file des processus traités
+    return result; 
 }
